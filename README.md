@@ -1,5 +1,7 @@
 # Database Design and Query Explorer (Python & SQL)
 
+![CI Status](https://github.com/16lv/sql-query-explorer/actions/workflows/ci.yml/badge.svg)
+
 A relational database schema and parameterised SQL query explorer built with **Python 3.12** and **SQLite**, modelling university departments, students, modules, and academic enrolments.
 
 ## Overview
