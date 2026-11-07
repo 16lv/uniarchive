@@ -49,15 +49,12 @@ CREATE INDEX IF NOT EXISTS idx_students_department
 
 
 class QueryExplorer:
-    """
-    Relational database explorer for a university course & enrolment domain.
-    Demonstrates foreign-key constraints, parameterised joins, GROUP BY aggregations,
-    and EXPLAIN QUERY PLAN index inspection.
-    """
+    # Small SQLite wrapper for testing university schema constraints, joins, and query plans.
 
     def __init__(self, db_path: str | Path = ":memory:") -> None:
         self._conn = sqlite3.connect(str(db_path))
         self._conn.row_factory = sqlite3.Row
+        # SCHEMA_SQL turns on PRAGMA foreign_keys = ON and sets up the 4 tables
         self._conn.executescript(SCHEMA_SQL)
         self._conn.commit()
 
@@ -154,6 +151,7 @@ class QueryExplorer:
         return [dict(r) for r in rows]
 
     def top_students_by_weighted_average(self, min_credits: int = 20) -> list[dict[str, Any]]:
+        # Multiply by 1.0 so SQLite does float division instead of truncating to an int
         rows = self._conn.execute(
             """
             SELECT
