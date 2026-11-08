@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import sqlite3
 from pathlib import Path
-from typing import Any
+from typing import Any, Self
 
 SCHEMA_SQL = """
 PRAGMA foreign_keys = ON;
@@ -57,6 +57,15 @@ class QueryExplorer:
         # SCHEMA_SQL turns on PRAGMA foreign_keys = ON and sets up the 4 tables
         self._conn.executescript(SCHEMA_SQL)
         self._conn.commit()
+
+    def close(self) -> None:
+        self._conn.close()
+
+    def __enter__(self) -> Self:
+        return self
+
+    def __exit__(self, exc_type: object, exc_val: object, exc_tb: object) -> None:
+        self.close()
 
     def seed_sample_data(self) -> None:
         self._conn.executemany(
