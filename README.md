@@ -1,12 +1,12 @@
-# UniArchive
+# University SQL Explorer (university-sql-explorer)
 
-![CI Status](https://github.com/16lv/uniarchive/actions/workflows/ci.yml/badge.svg)
+![CI Status](https://github.com/16lv/university-sql-explorer/actions/workflows/ci.yml/badge.svg)
 
-**UniArchive** is a relational database schema and parameterised SQL query explorer built with **Python 3.12** and **SQLite**, modelling university academic departments, students, modules, and course enrolments.
+**University SQL Explorer** ($(System.Collections.Hashtable.newRepo)) is a relational database schema and parameterised SQL query explorer built with **Python 3.12** and **SQLite**, modelling university academic departments, students, modules, and course enrolments.
 
 ## Why I Built It
 
-I built UniArchive alongside my Database Systems coursework (`CM2102`) to test relational normalisation, composite primary keys, credit-weighted grade aggregations, and B-tree index query plans (`EXPLAIN QUERY PLAN`) in an automated Python test suite rather than running ad-hoc queries in a GUI client.
+I built University SQL Explorer alongside my Database Systems coursework (`CM2102`) to test relational normalisation, composite primary keys, credit-weighted grade aggregations, and B-tree index query plans (`EXPLAIN QUERY PLAN`) in an automated Python test suite rather than running ad-hoc queries in a GUI client.
 
 ## Schema & Relational Constraints
 
